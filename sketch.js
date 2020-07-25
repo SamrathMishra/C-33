@@ -13,7 +13,7 @@ var bg = "sprites/bg.png";
 var score = 0;
 
 function preload() {
-   // getBackgroundImg();
+    getBackgroundImg();
    backgroundImg = loadImage("sprites/bg2.jpg");
 }
 
@@ -50,7 +50,7 @@ function setup(){
 function draw(){
     if(backgroundImg)
         background(backgroundImg);
-    
+
         noStroke();
         textSize(35)
         fill("white")
@@ -101,20 +101,20 @@ function keyPressed(){
     }
 }
 
-//async function getBackgroundImg(){
-  //  var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Tokyo");
-   // var responseJSON = await response.json();
+async function getBackgroundImg(){
+    var response = await fetch("http://worldtimeapi.org/api/timezone/Asia/Kolkata");
+   var responseJSON = await response.json();
 
-   // var datetime = responseJSON.datetime;
-   // var hour = datetime.slice(11,13);
+    var datetime = responseJSON.datetime;
+    var hour = datetime.slice(11,13);
     
-    // if(hour>=06 && hour<=19){
-        // bg = "sprites/bg.png";
-   //  }
-   //  else{
-       //  bg = "sprites/bg2.jpg";
-   //  }
+    if(hour>=06 && hour<=19){
+    bg = "sprites/bg.png";
+     }
+     else{
+     bg = "sprites/bg2.jpg";
+     }
 
-    // backgroundImg = loadImage(bg);
-    // console.log(backgroundImg);
- //}
+    backgroundImg = loadImage(bg);
+    console.log(backgroundImg);
+ }
